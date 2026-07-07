@@ -241,9 +241,12 @@ class _SidebarState extends State<Sidebar> {
   Widget _buildActionItem(IconData icon, String title) {
     return InkWell(
       onTap: () {
-        ScaffoldMessenger.of(
-          context,
-        ).showSnackBar(SnackBar(content: Text('$title clicked')));
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            duration: const Duration(milliseconds: 800),
+            content: Text('$title clicked'),
+          ),
+        );
       },
       borderRadius: BorderRadius.circular(8),
       child: Padding(

@@ -243,7 +243,9 @@ class _CalendarCardState extends State<CalendarCard> {
           style: Theme.of(context).textTheme.bodySmall?.copyWith(
             color: isSelected
                 ? Colors.white
-                : (isMuted ? Colors.grey.withValues(alpha: 0.5) : AppColors.textSub),
+                : (isMuted
+                      ? Colors.grey.withValues(alpha: 0.5)
+                      : AppColors.textSub),
             fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
             fontSize: 11,
           ),
@@ -331,9 +333,14 @@ class EventCard extends StatelessWidget {
             width: double.infinity,
             child: ElevatedButton.icon(
               onPressed: () {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text('$buttonText sent successfully!')),
-                );
+                ScaffoldMessenger.of(context)
+                  ..clearSnackBars()
+                  ..showSnackBar(
+                    SnackBar(
+                      duration: const Duration(milliseconds: 800),
+                      content: Text('$buttonText sent successfully!'),
+                    ),
+                  );
               },
               icon: const Icon(Icons.send, size: 16),
               label: Text(buttonText),

@@ -68,9 +68,12 @@ class _ProjectsCardState extends State<ProjectsCard> {
         setState(() {
           _selectedIndex = index;
         });
-        ScaffoldMessenger.of(
-          context,
-        ).showSnackBar(SnackBar(content: Text('Selected $subtitle')));
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            duration: const Duration(milliseconds: 800),
+            content: Text('Selected $subtitle'),
+          ),
+        );
       },
       borderRadius: BorderRadius.circular(AppConstants.radius12),
       child: Container(
@@ -141,9 +144,14 @@ class _ProjectsCardState extends State<ProjectsCard> {
                 size: 16,
               ),
               onPressed: () {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Edit project clicked')),
-                );
+                ScaffoldMessenger.of(context)
+                  ..clearSnackBars()
+                  ..showSnackBar(
+                    SnackBar(
+                      duration: const Duration(milliseconds: 800),
+                      content: Text('Edit project clicked'),
+                    ),
+                  );
               },
             ),
           ],

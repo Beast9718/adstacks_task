@@ -92,9 +92,12 @@ class CreatorsCard extends StatelessWidget {
   ) {
     return InkWell(
       onTap: () {
-        ScaffoldMessenger.of(
-          context,
-        ).showSnackBar(SnackBar(content: Text('View profile: $username')));
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            duration: const Duration(milliseconds: 800),
+            content: Text('View profile: $username'),
+          ),
+        );
       },
       borderRadius: BorderRadius.circular(8),
       child: Padding(
@@ -137,7 +140,9 @@ class CreatorsCard extends StatelessWidget {
                       borderRadius: BorderRadius.circular(4),
                       child: LinearProgressIndicator(
                         value: ratingValue,
-                        backgroundColor: Colors.deepPurple.withValues(alpha: 0.3),
+                        backgroundColor: Colors.deepPurple.withValues(
+                          alpha: 0.3,
+                        ),
                         valueColor: const AlwaysStoppedAnimation<Color>(
                           Colors.deepPurpleAccent,
                         ),

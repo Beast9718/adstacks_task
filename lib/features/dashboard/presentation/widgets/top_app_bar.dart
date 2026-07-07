@@ -116,9 +116,14 @@ class _TopAppBarState extends State<TopAppBar> {
               const SizedBox(width: AppConstants.spacing24),
               InkWell(
                 onTap: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Profile options clicked')),
-                  );
+                  ScaffoldMessenger.of(context)
+                    ..clearSnackBars()
+                    ..showSnackBar(
+                      SnackBar(
+                        duration: const Duration(milliseconds: 800),
+                        content: Text('Profile options clicked'),
+                      ),
+                    );
                 },
                 borderRadius: BorderRadius.circular(20),
                 child: const CircleAvatar(
@@ -143,9 +148,12 @@ class _TopAppBarState extends State<TopAppBar> {
       children: [
         InkWell(
           onTap: () {
-            ScaffoldMessenger.of(
-              context,
-            ).showSnackBar(SnackBar(content: Text('$tooltip clicked')));
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                duration: const Duration(milliseconds: 800),
+                content: Text('$tooltip clicked'),
+              ),
+            );
           },
           borderRadius: BorderRadius.circular(20),
           child: Container(

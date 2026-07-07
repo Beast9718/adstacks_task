@@ -55,9 +55,14 @@ class HeroCard extends StatelessWidget {
             const SizedBox(height: AppConstants.spacing24),
             ElevatedButton(
               onPressed: () {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Ethereum 2.0 Details loaded!')),
-                );
+                ScaffoldMessenger.of(context)
+                  ..clearSnackBars()
+                  ..showSnackBar(
+                    SnackBar(
+                      duration: const Duration(milliseconds: 800),
+                      content: Text('Ethereum 2.0 Details loaded!'),
+                    ),
+                  );
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.darkNavy,
